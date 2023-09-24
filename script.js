@@ -3,9 +3,26 @@ const chatInput = document.getElementById('chat-input');
 const sendBtn = document.getElementById('send-btn');
 
 let chatData = [
-    { type: 'user', text: 'hello!' },
-    { type: 'gpt', text: 'Hello, I am GPT' },
-    { type: 'user', text: 'cool!' }
+    { type: 'user', text: 'test1' },
+    { type: 'gpt', text: 'test2' },
+    { type: 'user', text: 'test3' },
+    { type: 'gpt', text: 'test4' },
+    { type: 'user', text: 'test5' },
+    { type: 'gpt', text: 'test6' },
+    { type: 'user', text: 'test7' },
+    { type: 'gpt', text: 'test8' },
+    { type: 'user', text: 'test9' },
+    { type: 'gpt', text: 'test10' },
+    { type: 'user', text: 'test11' },
+    { type: 'gpt', text: 'test12' },
+    { type: 'user', text: 'test13' },
+    { type: 'gpt', text: 'test14' },
+    { type: 'user', text: 'test15' },
+    { type: 'gpt', text: 'test16' },
+    { type: 'user', text: 'test17' },
+    { type: 'gpt', text: 'test18' },
+    { type: 'user', text: 'test19' },
+    { type: 'gpt', text: 'test20' }
 ];
 
 let chatIndex = 0;
@@ -44,7 +61,6 @@ function sendMessage(type, text) {
     chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-
 function simulateButtonClick(callback) {
     sendBtn.style.backgroundColor = '#1a4ad9'; // Darken the button
     setTimeout(() => {
@@ -62,7 +78,7 @@ function animateEllipsis(callback) {
         if (count <= 3) {
             ellipsisMessageDiv.textContent = '.'.repeat(count);
             count++;
-            setTimeout(addDot, 1000);
+            setTimeout(addDot, 500);
         } else {
             callback(ellipsisMessageDiv);
         }
@@ -80,16 +96,16 @@ function playChat() {
                         sendMessage('user', chatInput.value);
                         chatInput.value = '';
                         chatIndex++;
-                        setTimeout(playChat, 5000); // 5 seconds delay before GPT starts
+                        setTimeout(playChat, 1000); // Reduce the delay to make it quicker
                     });
-                }, 2000);
+                }, 1000); // Reduce the delay for testing
             });
         } else if (message.type === 'gpt') {
             animateEllipsis((ellipsisMessageDiv) => {
                 ellipsisMessageDiv.remove();
                 sendMessage('gpt', message.text);
                 chatIndex++;
-                setTimeout(playChat, 5000); // 5 seconds delay before the next user input
+                setTimeout(playChat, 1000); // Reduce the delay for testing
             });
         }
     }
