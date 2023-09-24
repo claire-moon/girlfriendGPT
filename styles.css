@@ -31,8 +31,7 @@ body {
 
 .user {
     background-color: #e1f5fe;
-    flex-direction: row-reverse;
-    align-self: flex-end;
+    justify-content: flex-end;
 }
 
 .gpt {
